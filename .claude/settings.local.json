@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ffmpeg -version)",
+      "Bash(ffprobe -v quiet -print_format json -show_streams -show_format \"C:\\\\Users\\\\ianma\\\\Documents\\\\Client Websites\\\\Green Griffin site\\\\assets\\\\video\\\\fireplace.mp4\")",
+      "Bash(ffmpeg -i 'C:/Users/ianma/Documents/Client Websites/Green Griffin site/assets/video/fireplace.mp4' -c:v libx264 -crf 33 -preset slow -an -movflags +faststart 'C:/Users/ianma/Documents/Client Websites/Green Griffin site/assets/video/fireplace-web.mp4' -y)",
+      "Bash(ffmpeg -i 'C:/Users/ianma/Documents/Client Websites/Green Griffin site/assets/video/fireplace.mp4' -ss 00:00:02 -vframes 1 -q:v 3 'C:/Users/ianma/Documents/Client Websites/Green Griffin site/assets/img/fireplace-poster.jpg' -y)",
+      "Bash(ffmpeg -i 'C:/Users/ianma/Documents/Client Websites/Green Griffin site/assets/video/fireplace.mp4' -ss 00:00:02 -vframes 1 -q:v 3 -update 1 'C:/Users/ianma/Documents/Client Websites/Green Griffin site/assets/img/fireplace-poster.jpg' -y)"
+    ]
+  }
+}

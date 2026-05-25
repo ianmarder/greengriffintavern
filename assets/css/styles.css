@@ -1,46 +1,33 @@
-/* ==========================================================================
-   The Green Griffin Tavern — stylesheet
-   Plain HTML/CSS/JS · single page · anchored sections
-   ========================================================================== */
-
 /* --- TOKENS --------------------------------------------------------------- */
 :root {
-  /* Brand — cool */
-  --c-navy-deep:    #003049;
-  --c-navy-mid:     #006BA3;
-  --c-sky-ice:      #C7E6F6;
+  /* Blue */
+  --blue-01:        #003049;
+  --blue-02:        #006BA3;
+  --blue-03:        #C7E6F6;
 
-  /* Brand — hot */
-  --c-red:          #D62828;
-  --c-ember:        #F77F00;
-  --c-gold:         #FFB933;
+  /* Warmth */
+  --warmth-01:      #D62828;
+  --warmth-02:      #F7D4D4;
 
-  /* Brand — warm cream / parchment */
-  --c-parchment:    #FEEDCD;
-  --c-cream:        #F1E2D0;
-  --c-blush:        #F7D4D4;
-  --c-bone:         #FDFCF7;
+  /* Fire */
+  --fire-01:        #F77F00;
+  --fire-02:        #F1E2D0;
 
-  /* Brand — green (the griffin) */
-  --c-green-deep:   #004124;
-  --c-green:        #00B061;
-  --c-green-soft:   #B8F9DC;
+  /* Torch */
+  --torch-01:       #FFB933;
+  --torch-02:       #FEEDCD;
 
-  /* Neutrals */
-  --c-ink:          #111111;
-  --c-charcoal:     #444444;
-  --c-stone:        #888888;
-  --c-fog:          #E1E0DD;
+  /* Green */
+  --green-01:       #004124;
+  --green-02:       #00B061;
+  --green-03:       #B8F9DC;
 
-  /* Functional roles */
-  --bg-base:        var(--c-navy-deep);
-  --bg-elevated:    var(--c-parchment);
-  --fg-on-dark:     var(--c-bone);
-  --fg-on-light:    var(--c-ink);
-  --accent-warm:    var(--c-ember);
-  --accent-cool:    var(--c-navy-mid);
-  --accent-cta:     var(--c-green);
-  --accent-cta-deep:var(--c-green-deep);
+  /* Shades */
+  --shade-01:       #111111;
+  --shade-02:       #444444;
+  --shade-03:       #888888;
+  --shade-04:       #E1E0DD;
+  --shade-05:       #FDFCF7;
 
   /* Type */
   --ff-display: 'Averia Serif Libre', Georgia, 'Times New Roman', serif;
@@ -66,6 +53,22 @@
   --ease:          cubic-bezier(.2,.6,.2,1);
 }
 
+/* --- SKIP LINK ------------------------------------------------------------ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--s-4);
+  background: var(--green-02);
+  color: var(--shade-01);
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 100;
+  transition: top .15s var(--ease);
+}
+.skip-link:focus { top: var(--s-3); }
+
 /* --- BASE ----------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -76,8 +79,8 @@ body {
   font-weight: 400;
   font-size: 17px;
   line-height: 1.55;
-  color: var(--fg-on-dark);
-  background: var(--bg-base);
+  color: var(--shade-05);
+  background: var(--shade-01);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -96,19 +99,19 @@ h3 { font-family: var(--ff-body); font-weight: 700; line-height: 1.2; }
 
 a { color: inherit; text-decoration: none; }
 .link { text-decoration: underline; text-underline-offset: 3px; }
-.link:hover { color: var(--c-ember); }
+.link:hover { color: var(--fire-01); }
 
 p { margin: 0 0 var(--s-4); }
 em { font-style: italic; }
 
-.muted { color: var(--c-stone); }
+.muted { color: #5a5550; } /* darkened from #888 — passes 4.5:1 on parchment */
 
 .eyebrow {
   font-family: var(--ff-body);
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.72rem;
-  color: var(--c-ember);
+  color: var(--fire-01);
   margin: 0 0 var(--s-2);
 }
 
@@ -116,7 +119,7 @@ em { font-style: italic; }
   font-family: var(--ff-body);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
-  color: var(--c-stone);
+  color: var(--shade-03);
 }
 .meta--centered { text-align: center; margin-top: var(--s-5); }
 
@@ -133,15 +136,6 @@ em { font-style: italic; }
   padding: var(--s-9) 0;
 }
 
-.section--ambient {
-  /* The warm glowing ambient background between beam dividers */
-  background: var(--bg-base);
-  background-image:
-    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(247,127,0,0.18), transparent 70%),
-    radial-gradient(ellipse 40% 40% at 80% 30%, rgba(255,185,51,0.12), transparent 70%),
-    radial-gradient(ellipse 70% 60% at 50% 90%, rgba(247,127,0,0.10), transparent 75%),
-    radial-gradient(ellipse 30% 40% at 90% 80%, rgba(214,40,40,0.08), transparent 70%);
-}
 
 .section__title {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
@@ -157,7 +151,7 @@ em { font-style: italic; }
 .rule {
   height: 2px;
   background: transparent;
-  background-image: linear-gradient(to right, transparent, var(--c-gold) 20%, var(--c-gold) 80%, transparent);
+  background-image: linear-gradient(to right, transparent, var(--torch-01) 20%, var(--torch-01) 80%, transparent);
   margin: 0 auto var(--s-7);
   width: min(100%, 720px);
   opacity: 0.85;
@@ -167,11 +161,11 @@ em { font-style: italic; }
 .hero__rule {
   height: 4px;
   width: 280px;
-  margin: var(--s-4) 0 var(--s-5);
+  margin: var(--s-4) auto var(--s-5);
   background: transparent;
   background-image:
-    radial-gradient(circle at 4px 2px, var(--c-gold) 1.2px, transparent 1.5px),
-    radial-gradient(circle at 12px 3px, var(--c-gold) 1.2px, transparent 1.5px);
+    radial-gradient(circle at 4px 2px, var(--torch-01) 1.2px, transparent 1.5px),
+    radial-gradient(circle at 12px 3px, var(--torch-01) 1.2px, transparent 1.5px);
   background-size: 16px 4px;
   background-repeat: repeat-x;
   opacity: 0.9;
@@ -186,12 +180,13 @@ em { font-style: italic; }
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255,185,51,0.15);
+  min-height: 60px;
 }
 
 .nav__inner {
   max-width: var(--max-content);
   margin: 0 auto;
-  padding: var(--s-3) var(--s-5);
+  padding: var(--s-3) var(--s-6);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -205,7 +200,7 @@ em { font-style: italic; }
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
 }
 /* Nav mark stays in the brand green */
-.nav__mark { color: var(--c-green); }
+.nav__mark { color: var(--green-02); }
 
 .nav__links {
   display: flex;
@@ -226,20 +221,20 @@ em { font-style: italic; }
   left: 0; right: 100%;
   bottom: 2px;
   height: 1px;
-  background: var(--c-gold);
+  background: var(--torch-01);
   transition: right .25s var(--ease);
 }
-.nav__links a:not(.nav__cta):hover { color: var(--c-gold); }
+.nav__links a:not(.nav__cta):hover { color: var(--torch-01); }
 .nav__links a:not(.nav__cta):hover::after { right: 0; }
 
 .nav__cta {
-  background: var(--accent-cta);
-  color: var(--c-ink);
-  padding: var(--s-2) var(--s-4);
-  border-radius: var(--radius);
-  font-weight: 700;
+  padding: var(--s-2) var(--s-6) !important;
   transition: transform .15s var(--ease), box-shadow .2s var(--ease);
   box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: center;
+  width: auto;
 }
 .nav__cta:hover {
   transform: translateY(-1px);
@@ -251,6 +246,7 @@ em { font-style: italic; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: fit-content;
   padding: var(--s-3) var(--s-5);
   font-family: var(--ff-body);
   font-weight: 700;
@@ -264,8 +260,8 @@ em { font-style: italic; }
 }
 
 .btn--primary {
-  background: var(--accent-cta);
-  color: var(--c-ink);
+  background: var(--green-02);
+  color: var(--shade-01);
   box-shadow: 0 1px 0 rgba(0,0,0,0.25), 0 6px 16px rgba(0,176,97,0.18);
 }
 .btn--primary:hover {
@@ -275,13 +271,25 @@ em { font-style: italic; }
 
 .btn--ghost {
   background: transparent;
-  color: var(--c-ink);
-  border: 1.5px solid currentColor;
+  color: var(--shade-05);
+  border: 1.5px solid var(--shade-05);
   font-weight: 600;
 }
 .btn--ghost:hover {
-  background: var(--c-ink);
-  color: var(--c-parchment);
+  background: var(--shade-05);
+  color: var(--shade-01);
+}
+
+/* For ghost buttons sitting on light/parchment backgrounds */
+.btn--ghost-dark {
+  background: transparent;
+  color: var(--shade-01);
+  border: 1.5px solid var(--shade-01);
+  font-weight: 600;
+}
+.btn--ghost-dark:hover {
+  background: var(--shade-01);
+  color: var(--torch-02);
 }
 
 .btn--small {
@@ -292,60 +300,55 @@ em { font-style: italic; }
 /* --- HERO ----------------------------------------------------------------- */
 .hero {
   position: relative;
-  padding: var(--s-9) 0 var(--s-10);
+  padding: var(--s-10) 0;
+  background: var(--blue-01);
   overflow: hidden;
-  background: var(--bg-base);
 }
 
-/* The hearth fire backdrop — built from layered radial gradients
-   to evoke embers and flame without needing a photo */
-.hero__hearth {
+.hero__video {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  background:
-    /* central flame core */
-    radial-gradient(ellipse 35% 45% at 50% 55%, rgba(255,185,51,0.55) 0%, rgba(247,127,0,0.45) 35%, rgba(214,40,40,0.25) 60%, transparent 80%),
-    /* flame flicker right */
-    radial-gradient(ellipse 25% 35% at 65% 60%, rgba(247,127,0,0.40) 0%, rgba(214,40,40,0.20) 50%, transparent 75%),
-    /* flame flicker left */
-    radial-gradient(ellipse 22% 32% at 38% 62%, rgba(255,185,51,0.35) 0%, rgba(247,127,0,0.20) 50%, transparent 75%),
-    /* ember glow base */
-    radial-gradient(ellipse 70% 30% at 50% 95%, rgba(214,40,40,0.35) 0%, transparent 70%),
-    /* outer dark vignette */
-    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 30%, rgba(0,48,73,0.7) 80%, var(--c-navy-deep) 100%);
-  filter: blur(0.5px);
-  animation: flicker 8s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+  transform: scale(1.2) translateY(-90px);
 }
 
-@keyframes flicker {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  25% { opacity: 0.92; transform: scale(1.015) translateY(-2px); }
-  50% { opacity: 1; transform: scale(0.99) translateY(1px); }
-  75% { opacity: 0.95; transform: scale(1.01); }
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 48, 73, 0.65);
+  z-index: 1;
 }
 
 .hero__inner {
   position: relative;
+  z-index: 2;
   max-width: var(--max-content);
   margin: 0 auto;
   padding: 0 var(--s-5);
-  display: grid;
-  grid-template-columns: minmax(220px, 320px) 1fr;
-  gap: var(--s-7);
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: var(--s-6);
 }
 
 .hero__shield {
   position: relative;
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5));
 }
 .hero__shield img {
   width: 100%;
-  max-width: 320px;
+  min-height: 32rem;
 }
 
-.hero__copy { color: var(--fg-on-dark); }
+.hero__copy {
+  color: var(--shade-05);
+  max-width: 640px;
+  width: 100%;
+}
 
 .hero__headline {
   font-size: clamp(2.2rem, 5vw, 3.6rem);
@@ -356,12 +359,11 @@ em { font-style: italic; }
 
 .hero__lede {
   font-size: 1.05rem;
-  max-width: 38ch;
-  margin: 0 0 var(--s-5);
-  color: var(--c-cream);
+  margin: 0 auto var(--s-5);
+  color: var(--fire-02);
 }
 .hero__lede em {
-  color: var(--c-gold);
+  color: var(--torch-01);
   font-style: italic;
 }
 
@@ -370,72 +372,6 @@ em { font-style: italic; }
   padding: var(--s-3) var(--s-6);
 }
 
-/* --- BEAM DIVIDER --------------------------------------------------------- */
-.beam {
-  position: relative;
-  height: 80px;
-  background:
-    /* wood plank lines */
-    repeating-linear-gradient(
-      90deg,
-      rgba(0,0,0,0.0) 0px,
-      rgba(0,0,0,0.0) 60px,
-      rgba(0,0,0,0.25) 60px,
-      rgba(0,0,0,0.25) 62px,
-      rgba(0,0,0,0.0) 62px,
-      rgba(0,0,0,0.0) 120px
-    ),
-    /* wood grain horizontal striping */
-    repeating-linear-gradient(
-      0deg,
-      rgba(0,0,0,0.05) 0px,
-      rgba(0,0,0,0.05) 1px,
-      transparent 1px,
-      transparent 4px
-    ),
-    /* base wood color gradient */
-    linear-gradient(180deg, #6b3a1f 0%, #4a2613 50%, #6b3a1f 100%);
-  box-shadow:
-    inset 0 8px 12px -4px rgba(0,0,0,0.6),
-    inset 0 -8px 12px -4px rgba(0,0,0,0.6);
-  overflow: hidden;
-}
-
-/* Burnt griffin brands stamped along the beam */
-.beam__brands {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 100%;
-  padding: 0 var(--s-5);
-}
-.beam__brands span {
-  display: block;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 2px solid rgba(20,8,4,0.85);
-  background:
-    radial-gradient(circle, rgba(20,8,4,0.4) 0%, rgba(20,8,4,0.0) 70%),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%2314080a' stroke-width='3'/></svg>");
-  background-size: cover;
-  box-shadow:
-    inset 0 0 8px rgba(0,0,0,0.6),
-    0 1px 1px rgba(255,200,150,0.15);
-  opacity: 0.7;
-  position: relative;
-}
-.beam__brands span::after {
-  /* Tiny griffin silhouette inside the brand */
-  content: '';
-  position: absolute;
-  inset: 8px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M48 22 C44 24 44 28 46 30 C40 30 36 34 36 38 C36 42 40 44 44 44 C40 48 36 52 36 58 C36 64 42 68 50 70 C58 68 64 64 64 58 C64 52 60 48 56 44 C60 44 64 42 64 38 C64 34 60 30 54 30 C56 28 56 24 52 22 Z M44 36 C44 38 45 39 47 39 C49 39 50 38 50 36 C50 34 49 33 47 33 C45 33 44 34 44 36 Z' fill='%2314080a'/></svg>");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.7;
-}
 
 /* --- CARDS ---------------------------------------------------------------- */
 .grid {
@@ -447,8 +383,8 @@ em { font-style: italic; }
 }
 
 .card {
-  background: var(--c-parchment);
-  color: var(--c-ink);
+  background: var(--torch-02);
+  color: var(--shade-01);
   border-radius: var(--radius-card);
   padding: var(--s-6) var(--s-5);
   display: flex;
@@ -469,19 +405,10 @@ em { font-style: italic; }
   width: 100%;
   min-height: 80px;
   padding: var(--s-3) 0;
-  /* Wood-frame top */
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(0,0,0,0.0) 0,
-      rgba(0,0,0,0.0) 30px,
-      rgba(0,0,0,0.15) 30px,
-      rgba(0,0,0,0.15) 31px
-    ),
-    linear-gradient(180deg, #6b3a1f 0%, #4a2613 100%);
+  background: #4a2613;
   border-radius: var(--radius) var(--radius) 0 0;
   margin: calc(-1 * var(--s-6)) calc(-1 * var(--s-5)) var(--s-3);
-  color: var(--c-parchment);
+  color: var(--torch-02);
   box-shadow: inset 0 -4px 8px rgba(0,0,0,0.4);
 }
 .card__icon-text {
@@ -489,7 +416,7 @@ em { font-style: italic; }
   font-weight: 700;
   font-size: 1.5rem;
   font-style: italic;
-  color: var(--c-parchment);
+  color: var(--torch-02);
   letter-spacing: 0.02em;
   text-shadow:
     1px 1px 0 rgba(0,0,0,0.5),
@@ -499,7 +426,7 @@ em { font-style: italic; }
   width: 80%;
   height: auto;
   max-height: 36px;
-  color: var(--c-parchment);
+  color: var(--torch-02);
 }
 
 .card__title {
@@ -510,12 +437,12 @@ em { font-style: italic; }
   margin: 0;
 }
 .card__title--center { text-align: center; }
-.card__title--accent { color: var(--c-ember); }
+.card__title--accent { color: #c45e00; } /* darkened ember — passes 4.5:1 on parchment */
 
 .card__body {
   font-size: 0.92rem;
   line-height: 1.5;
-  color: var(--c-charcoal);
+  color: var(--shade-02);
   margin: 0 0 var(--s-3);
   max-width: 28ch;
 }
@@ -533,7 +460,7 @@ em { font-style: italic; }
   width: 200px;
   aspect-ratio: 1;
   border-radius: var(--radius-card);
-  background: var(--c-parchment);
+  background: var(--torch-02);
   padding: var(--s-3);
   box-shadow:
     0 1px 0 rgba(255,255,255,0.5) inset,
@@ -556,8 +483,8 @@ em { font-style: italic; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--c-cream);
-  color: var(--c-stone);
+  background: var(--fire-02);
+  color: var(--shade-03);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -572,7 +499,7 @@ em { font-style: italic; }
 }
 
 .barkeep__body {
-  color: var(--c-cream);
+  color: var(--fire-02);
   max-width: 48ch;
   margin: 0 0 var(--s-4);
 }
@@ -587,7 +514,7 @@ em { font-style: italic; }
 
 .taste-card {
   aspect-ratio: 4 / 3;
-  background: var(--c-parchment);
+  background: var(--torch-02);
   border-radius: var(--radius-card);
   display: flex;
   align-items: center;
@@ -602,7 +529,7 @@ em { font-style: italic; }
   font-family: var(--ff-display);
   font-style: italic;
   font-weight: 700;
-  color: var(--c-red);
+  color: var(--warmth-01);
   font-size: clamp(2rem, 4vw, 3rem);
 }
 
@@ -613,7 +540,7 @@ em { font-style: italic; }
 }
 
 .card--wood {
-  background: var(--c-parchment);
+  background: var(--torch-02);
   padding-top: 0;
   overflow: hidden;
 }
@@ -622,20 +549,12 @@ em { font-style: italic; }
   display: block;
   height: 56px;
   margin: 0 calc(-1 * var(--s-5)) var(--s-4);
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(0,0,0,0) 0,
-      rgba(0,0,0,0) 40px,
-      rgba(0,0,0,0.18) 40px,
-      rgba(0,0,0,0.18) 41px
-    ),
-    linear-gradient(180deg, #6b3a1f 0%, #4a2613 100%);
+  background: #4a2613;
   box-shadow: inset 0 -4px 8px rgba(0,0,0,0.4);
 }
 
 .card--accent {
-  border: 2px solid var(--c-ember);
+  border: 2px solid var(--fire-01);
   position: relative;
 }
 
@@ -658,11 +577,11 @@ em { font-style: italic; }
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--c-charcoal);
+  color: var(--shade-02);
 }
 .pricing-table td:first-child { font-weight: 600; }
 .pricing-table sup {
-  color: var(--c-ember);
+  color: var(--fire-01);
   font-weight: 700;
 }
 
@@ -676,7 +595,7 @@ em { font-style: italic; }
 .promo-stack .card__body { max-width: none; }
 
 .card--illustration {
-  background: var(--c-bone);
+  background: var(--shade-05);
   padding: var(--s-5);
 }
 .illustration-slot {
@@ -690,7 +609,7 @@ em { font-style: italic; }
 }
 .illustration-slot p {
   font-family: var(--ff-body);
-  color: var(--c-stone);
+  color: var(--shade-03);
   text-align: center;
   margin: 0;
 }
@@ -699,9 +618,9 @@ em { font-style: italic; }
 .booking-embed {
   margin-top: var(--s-9);
   padding: var(--s-6);
-  background: var(--c-parchment);
+  background: var(--torch-02);
   border-radius: var(--radius-card);
-  color: var(--c-ink);
+  color: var(--shade-01);
   box-shadow:
     0 1px 0 rgba(255,255,255,0.4) inset,
     0 16px 36px rgba(0,0,0,0.35);
@@ -715,13 +634,13 @@ em { font-style: italic; }
 }
 .booking-embed__lede {
   text-align: center;
-  color: var(--c-charcoal);
+  color: var(--shade-02);
   max-width: 50ch;
   margin: 0 auto var(--s-5);
 }
 .booking-embed__frame {
   min-height: 320px;
-  background: var(--c-bone);
+  background: var(--shade-05);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
@@ -730,12 +649,12 @@ em { font-style: italic; }
 }
 .booking-embed__placeholder p {
   text-align: center;
-  color: var(--c-stone);
+  color: var(--shade-03);
   margin: 0 0 var(--s-3);
 }
 .booking-embed__placeholder p:first-child {
   font-family: var(--ff-display);
-  color: var(--c-charcoal);
+  color: var(--shade-02);
   font-size: 1.1rem;
 }
 .booking-embed__placeholder code {
@@ -747,8 +666,8 @@ em { font-style: italic; }
 
 /* --- FOOTER --------------------------------------------------------------- */
 .footer {
-  background: var(--c-green-deep);
-  color: var(--fg-on-dark);
+  background: var(--blue-01);
+  color: var(--shade-05);
   padding: var(--s-8) 0 var(--s-6);
   position: relative;
 }
@@ -757,7 +676,7 @@ em { font-style: italic; }
   content: '';
   display: block;
   height: 2px;
-  background-image: linear-gradient(to right, transparent, var(--c-gold) 20%, var(--c-gold) 80%, transparent);
+  background-image: linear-gradient(to right, transparent, var(--torch-01) 20%, var(--torch-01) 80%, transparent);
   margin: 0 auto var(--s-7);
   width: min(100%, 720px);
   opacity: 0.85;
@@ -803,20 +722,20 @@ em { font-style: italic; }
 .footer__col-title {
   font-weight: 700;
   margin: 0 0 var(--s-2);
-  color: var(--c-bone);
+  color: var(--shade-05);
 }
 .footer__col a {
-  color: var(--c-cream);
+  color: var(--fire-02);
   font-size: 0.85rem;
   transition: color .15s var(--ease);
 }
-.footer__col a:hover { color: var(--c-gold); }
+.footer__col a:hover { color: var(--torch-01); }
 
 .footer__cta { align-self: center; }
 
 .footer__legal {
   font-size: 0.75rem;
-  color: var(--c-cream);
+  color: var(--fire-02);
   opacity: 0.7;
   line-height: 1.6;
   grid-column: 1 / -1;
@@ -829,15 +748,6 @@ em { font-style: italic; }
 
 /* --- RESPONSIVE ----------------------------------------------------------- */
 @media (max-width: 960px) {
-  .hero__inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: var(--s-5);
-  }
-  .hero__shield { margin: 0 auto; max-width: 240px; }
-  .hero__rule { margin-left: auto; margin-right: auto; }
-  .hero__lede { margin-left: auto; margin-right: auto; }
-
   .grid--3 { grid-template-columns: 1fr; }
   .grid--pricing { grid-template-columns: 1fr; }
 
@@ -869,13 +779,15 @@ em { font-style: italic; }
   .nav__mark { width: 36px; height: 36px; }
 
   .section { padding: var(--s-7) 0; }
-  .hero { padding: var(--s-7) 0 var(--s-8); }
-  .beam__brands span { width: 40px; height: 40px; }
-
-  .footer__nav { grid-template-columns: 1fr; }
+  .hero { padding: var(--s-8) 0; }
+.footer__nav { grid-template-columns: 1fr; }
 }
 
 /* --- A11Y / MOTION -------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero__video { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -886,7 +798,7 @@ em { font-style: italic; }
 }
 
 :focus-visible {
-  outline: 2px solid var(--c-gold);
+  outline: 2px solid var(--torch-01);
   outline-offset: 3px;
   border-radius: 2px;
 }

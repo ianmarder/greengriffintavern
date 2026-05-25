@@ -21,6 +21,9 @@
 </head>
 <body>
 
+  <!-- Skip nav for keyboard users -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ============ NAV ============ -->
   <header class="nav">
     <div class="nav__inner">
@@ -31,40 +34,34 @@
         <a href="#content">Content</a>
         <a href="#connect">Connect</a>
         <a href="#about">About</a>
-        <a href="#book" class="nav__cta">Find a session</a>
+        <a href="#book" class="btn btn--primary nav__cta">Find a session</a>
       </nav>
     </div>
   </header>
 
+  <main id="main-content">
+
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
-    <div class="hero__hearth" aria-hidden="true"></div>
-    <div class="hero__inner">
+    <video class="hero__video" autoplay muted loop playsinline poster="assets/img/fireplace-poster.jpg">
+      <source src="assets/video/fireplace-web.mp4" type="video/mp4">
+    </video>
+<div class="hero__inner">
       <div class="hero__shield">
         <img src="assets/svg/shield-white.svg" alt="The Green Griffin Tavern crest">
       </div>
       <div class="hero__copy">
         <h1 class="hero__headline">
-          Pull up a seat,<br>
-          grab an ale,<br>
-          and get ready.
+          Pull up a seat, grab an ale, and get ready.
         </h1>
         <div class="hero__rule" aria-hidden="true"></div>
         <p class="hero__lede">
-          Epic stories. Seamless play. A professional
-          Dungeon Master for your next <em>adventure</em>.
+          Epic stories. Seamless play. A professional Dungeon Master for your next <em>adventure</em>.
         </p>
         <a href="#book" class="btn btn--primary hero__cta">Find a session</a>
       </div>
     </div>
   </section>
-
-  <!-- ============ BEAM DIVIDER ============ -->
-  <div class="beam" aria-hidden="true">
-    <div class="beam__brands">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-  </div>
 
   <!-- ============ CONTENT: Ruleset experience ============ -->
   <section class="section section--ambient" id="content">
@@ -80,7 +77,7 @@
           </div>
           <h3 class="card__title">Dungeons<br>and Dragons</h3>
           <p class="card__body">The original tabletop role-playing game system. Originally published in 1974 by Tactical Studies Rules.</p>
-          <a href="#book" class="btn btn--ghost">Browse campaigns</a>
+          <a href="#book" class="btn btn--ghost-dark">Browse campaigns</a>
         </article>
 
         <article class="card">
@@ -89,7 +86,7 @@
           </div>
           <h3 class="card__title">Pathfinder<br>and Starfinder</h3>
           <p class="card__body">A newer "open-source" TTRPG system developed by Paizo. Fantasy, sci-fi, and other adventures await without ad-rolls.</p>
-          <a href="#book" class="btn btn--ghost">Browse campaigns</a>
+          <a href="#book" class="btn btn--ghost-dark">Browse campaigns</a>
         </article>
 
         <article class="card">
@@ -111,12 +108,12 @@
           </div>
           <h3 class="card__title">Board, card, even<br>social games</h3>
           <p class="card__body">Dominion, Catan, speed-puzzling, or even Mafia! Expert navigation of rule books.</p>
-          <a href="#book" class="btn btn--ghost">Tabletop simulator even!</a>
+          <a href="#book" class="btn btn--ghost-dark">Tabletop simulator even!</a>
         </article>
       </div>
 
       <div class="section__footer">
-        <a href="#book" class="btn btn--ghost btn--small">TTRPG FAQs</a>
+        <a href="#book" class="btn btn--ghost-dark btn--small">TTRPG FAQs</a>
       </div>
     </div>
   </section>
@@ -160,13 +157,6 @@
     </div>
   </section>
 
-  <!-- ============ BEAM DIVIDER ============ -->
-  <div class="beam" aria-hidden="true">
-    <div class="beam__brands">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-  </div>
-
   <!-- ============ BOOKING / PRICING ============ -->
   <section class="section section--ambient" id="book">
     <div class="container">
@@ -204,7 +194,7 @@
               </tr>
             </tbody>
           </table>
-          <a href="#book" class="btn btn--ghost">More details</a>
+          <a href="#book" class="btn btn--ghost-dark">More details</a>
         </article>
 
         <!-- Promo column: two stacked cards -->
@@ -212,7 +202,7 @@
           <article class="card card--wood">
             <h3 class="card__title">Weekly one-shots</h3>
             <p class="card__body">Want to try things out? Come in, we're open and ready to spell a yarn with you.</p>
-            <a href="#book" class="btn btn--ghost">Try free — no commitment</a>
+            <a href="#book" class="btn btn--ghost-dark">Try free — no commitment</a>
           </article>
 
           <article class="card card--wood card--accent">
@@ -246,6 +236,8 @@
     </div>
   </section>
 
+  </main><!-- /#main-content -->
+
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="footer__inner">
@@ -254,7 +246,7 @@
       </a>
 
       <nav class="footer__nav" aria-label="Footer">
-        <a href="#top" class="footer__home">Home</a>
+        <a href="#top" class="footer__home"> </a>
 
         <div class="footer__col">
           <p class="footer__col-title">Content</p>
