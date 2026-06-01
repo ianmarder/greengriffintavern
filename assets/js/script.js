@@ -52,6 +52,20 @@
     updateParallax();
   }
 
+  // ---------- Randomize dividers ----------
+  const prefix = window.location.pathname.includes('/book/') ? '../' : '';
+  const dividerSVGs = [
+    `${prefix}assets/svg/divider1.svg`,
+    `${prefix}assets/svg/divider2.svg`,
+    `${prefix}assets/svg/divider3.svg`,
+  ];
+
+  document.querySelectorAll('.rule, .hero__rule').forEach(el => {
+    const src = dividerSVGs[Math.floor(Math.random() * dividerSVGs.length)];
+    el.style.maskImage = `url('${src}')`;
+    el.style.webkitMaskImage = `url('${src}')`;
+  });
+
   // ---------- Smooth anchor offset for sticky nav ----------
   // CSS handles smooth-scroll; this adds offset for the sticky header height.
   document.querySelectorAll('a[href^="#"]').forEach(a => {

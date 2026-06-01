@@ -120,7 +120,7 @@ em { font-style: italic; }
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 1rem;
-  color: var(--fire-01);
+  color: var(--torch-01);
   margin: 0 0 var(--s-2);
   text-align: center;
 }
@@ -163,26 +163,30 @@ em { font-style: italic; }
 }
 
 .rule {
-  height: 2px;
-  background: transparent;
-  background-image: linear-gradient(to right, transparent, var(--torch-01) 20%, var(--torch-01) 80%, transparent);
-  margin: 0 auto var(--s-7);
+  height: 10px;
   width: min(100%, 720px);
-  opacity: 0.85;
+  margin: 0 auto var(--s-7);
+  background-color: var(--shade-04);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
 }
 
 /* Hand-drawn underline rule for hero */
 .hero__rule {
-  height: 4px;
+  height: 24px;
   width: 280px;
   margin: var(--s-4) auto var(--s-5);
-  background: transparent;
-  background-image:
-    radial-gradient(circle at 4px 2px, var(--torch-01) 1.2px, transparent 1.5px),
-    radial-gradient(circle at 12px 3px, var(--torch-01) 1.2px, transparent 1.5px);
-  background-size: 16px 4px;
-  background-repeat: repeat-x;
-  opacity: 0.9;
+  background-color: var(--torch-01);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
 }
 
 /* --- NAV ------------------------------------------------------------------ */
@@ -788,19 +792,7 @@ em { font-style: italic; }
   padding: var(--s-8) 0 var(--s-6);
   position: relative;
 }
-.footer::before {
-  /* Top gold line break */
-  content: '';
-  display: block;
-  height: 2px;
-  background-image: linear-gradient(to right, transparent, var(--torch-01) 20%, var(--torch-01) 80%, transparent);
-  margin: 0 auto var(--s-7);
-  width: min(100%, 720px);
-  opacity: 0.85;
-  position: absolute;
-  top: 0;
-  left: 0; right: 0;
-}
+
 
 .footer__inner {
   max-width: var(--max-content);
