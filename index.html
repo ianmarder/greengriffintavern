@@ -24,6 +24,14 @@
   <!-- Skip nav for keyboard users -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- ============ GLOBAL VIDEO BACKGROUND ============ -->
+  <div class="bg-video" aria-hidden="true">
+    <video class="bg-video__media" autoplay muted loop playsinline poster="assets/img/fireplace-poster.jpg">
+      <source src="assets/video/fireplace-web.mp4" type="video/mp4">
+    </video>
+    <div class="bg-video__overlay"></div>
+  </div>
+
   <!-- ============ NAV ============ -->
   <header class="nav">
     <div class="nav__inner">
@@ -34,7 +42,7 @@
         <a href="#content">Content</a>
         <a href="#connect">Connect</a>
         <a href="#about">About</a>
-        <a href="#book" class="btn btn--primary nav__cta">Find a session</a>
+        <a href="book/" class="btn btn--primary nav__cta">Find session</a>
       </nav>
     </div>
   </header>
@@ -43,9 +51,6 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
-    <video class="hero__video" autoplay muted loop playsinline poster="assets/img/fireplace-poster.jpg">
-      <source src="assets/video/fireplace-web.mp4" type="video/mp4">
-    </video>
 <div class="hero__inner">
       <div class="hero__shield">
         <img src="assets/svg/shield-white.svg" alt="The Green Griffin Tavern crest">
@@ -58,57 +63,7 @@
         <p class="hero__lede">
           Epic stories. Seamless play. A professional Dungeon Master for your next <em>adventure</em>.
         </p>
-        <a href="#book" class="btn btn--primary hero__cta">Find a session</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTENT: Ruleset experience ============ -->
-  <section class="section section--ambient" id="content">
-    <div class="container">
-      <p class="eyebrow">About</p>
-      <h2 class="section__title">Ruleset experience</h2>
-      <div class="rule rule--gold"></div>
-
-      <div class="grid grid--3">
-
-        <article class="card card--ruleset card--ruleset-1">
-          <div class="card__logo-zone" aria-hidden="true">
-            <span class="card__logo-text">DnD</span>
-          </div>
-          <div class="card__content">
-            <h3 class="card__title">Dungeons and Dragons</h3>
-            <p class="card__body">The original tabletop role-playing game system. Published in 1974, refined across decades — the gold standard of collaborative storytelling.</p>
-            <a href="#book" class="btn btn--ghost-dark card__btn">DnD campaigns</a>
-          </div>
-        </article>
-
-        <article class="card card--ruleset card--ruleset-2">
-          <div class="card__logo-zone" aria-hidden="true">
-            <span class="card__logo-text">Pathfinder</span>
-          </div>
-          <div class="card__content">
-            <h3 class="card__title">Pathfinder and Starfinder</h3>
-            <p class="card__body">Open-source TTRPG systems by Paizo. Deep character builds, rich lore, and adventures across fantasy worlds and the stars — no ad-rolls required.</p>
-            <a href="#book" class="btn btn--ghost-dark card__btn">PF campaigns</a>
-          </div>
-        </article>
-
-        <article class="card card--ruleset card--ruleset-3">
-          <div class="card__logo-zone" aria-hidden="true">
-            <span class="card__logo-text">&amp; more</span>
-          </div>
-          <div class="card__content">
-            <h3 class="card__title">Board, card, and social games</h3>
-            <p class="card__body">Dominion, Catan, Mafia, speed-puzzling, and Tabletop Simulator. If there are rules, Blair knows them.</p>
-            <a href="#book" class="btn btn--ghost-dark card__btn">See all games</a>
-          </div>
-        </article>
-
-      </div>
-
-      <div class="section__footer">
-        <a href="#book" class="btn btn--outline btn--small">TTRPG FAQs</a>
+        <a href="book/" class="btn btn--primary hero__cta">Find a session</a>
       </div>
     </div>
   </section>
@@ -127,12 +82,64 @@
         </div>
         <div class="barkeep__copy">
           <p class="eyebrow">About</p>
-          <h2 class="barkeep__title">The barkeep</h2>
+          <h2 class="barkeep__title">Your DM</h2>
           <p class="barkeep__body">
-            <a href="#connect" class="link">Blair Cameron</a> at your service. Short bio, experience (years running games, systems mastered, notable clients), maybe testimonials and some other sort of nonsense.
+            Funny. Organized. Hard to ruffle. Ten years behind the screen has taught me one thing — every group is different. I read the room and run the game you came for.
           </p>
-          <a href="#book" class="btn btn--ghost">Learn more</a>
+          <p class="barkeep__signoff">
+            — Blair Cameron, your DM and friendly neighbourhood barkeep.
+          </p>
+          <a href="#taste" class="btn btn--ghost">See a session</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ============ CONTENT: Ruleset experience ============ -->
+  <section class="section section--ambient" id="content">
+    <div class="container">
+      <p class="eyebrow--centered">About</p>
+      <h2 class="section__title--centered">Ruleset experience</h2>
+
+      <div class="grid grid--3">
+
+        <article class="card card--ruleset card--ruleset-1">
+          <div class="card__logo-zone" aria-hidden="true">
+            <span class="card__logo-text">DnD</span>
+          </div>
+          <div class="card__content">
+            <h3 class="card__title">Dungeons and Dragons</h3>
+            <p class="card__body">The original tabletop role-playing game system. Published in 1974, refined across decades — the gold standard of collaborative storytelling.</p>
+            <a href="book/" class="btn btn--ghost-dark card__btn">DnD campaigns</a>
+          </div>
+        </article>
+
+        <article class="card card--ruleset card--ruleset-2">
+          <div class="card__logo-zone" aria-hidden="true">
+            <span class="card__logo-text">Pathfinder</span>
+          </div>
+          <div class="card__content">
+            <h3 class="card__title">Pathfinder and Starfinder</h3>
+            <p class="card__body">Open-source TTRPG systems by Paizo. Deep character builds, rich lore, and adventures across fantasy worlds and the stars — no ad-rolls required.</p>
+            <a href="book/" class="btn btn--ghost-dark card__btn">PF campaigns</a>
+          </div>
+        </article>
+
+        <article class="card card--ruleset card--ruleset-3">
+          <div class="card__logo-zone" aria-hidden="true">
+            <span class="card__logo-text">&amp; more</span>
+          </div>
+          <div class="card__content">
+            <h3 class="card__title">Board, card, and social games</h3>
+            <p class="card__body">Dominion, Catan, Mafia, speed-puzzling, and Tabletop Simulator. If there are rules, Blair knows them.</p>
+            <a href="book/" class="btn btn--ghost-dark card__btn">See  games</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="section__footer">
+        <a href="book/" class="btn btn--outline btn--small">TTRPG FAQs</a>
       </div>
     </div>
   </section>
@@ -160,74 +167,43 @@
 
       <div class="grid grid--pricing">
 
-        <!-- Pricing table card -->
-        <article class="card card--wood">
-          <h3 class="card__title card__title--center">Pricing</h3>
-          <table class="pricing-table">
-            <thead>
-              <tr>
-                <th>Session</th>
-                <th>Price</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>One-shot</td>
-                <td>$40<sup>*</sup></td>
-                <td>One-shots are quick — you only get one chance to win.<br><em class="muted">*Free for first time drop-ins!</em></td>
-              </tr>
-              <tr>
-                <td>Campaign</td>
-                <td>$30<br><span class="muted">/ session</span></td>
-                <td>Full-length, multi-session, world-changing adventures.</td>
-              </tr>
-              <tr>
-                <td>Team event</td>
-                <td><a href="#book" class="link">Contact</a></td>
-                <td>Details</td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="#book" class="btn btn--outline btn--outline-dark">More details</a>
+        <article class="card card--pricing">
+          <div class="card__pricing-zone">
+            <p class="card__eyebrow">First session free</p>
+            <h3 class="card__pricing-name">Campaigns</h3>
+            <p class="card__price">$30 <span class="card__price-unit">/ session</span></p>
+          </div>
+          <div class="card__content">
+            <p class="card__body">Multi-session adventures with an ongoing party. Recurring world-building, character growth, and stories that span weeks or months.</p>
+            <a href="book/" class="btn btn--ghost-dark card__btn">Book campaign</a>
+          </div>
         </article>
 
-        <!-- Promo column: two stacked cards -->
-        <div class="promo-stack">
-          <article class="card card--wood">
-            <h3 class="card__title">Weekly one-shots</h3>
-            <p class="card__body">Want to try things out? Come in, we're open and ready to spell a yarn with you.</p>
-            <a href="#book" class="btn btn--ghost-dark">Try free — no commitment</a>
-          </article>
+        <article class="card card--pricing">
+          <div class="card__pricing-zone">
+            <p class="card__eyebrow">Free monthly drop-in night</p>
+            <h3 class="card__pricing-name">One-shots</h3>
+            <p class="card__price">$40 <span class="card__price-unit">/ seat</span></p>
+          </div>
+          <div class="card__content">
+            <p class="card__body">Standalone single sessions. Try a new system, run a quick story, or just see if TTRPGs are for you. New tables every week.</p>
+            <a href="book/" class="btn btn--ghost-dark card__btn" style="transform: translateX();">Check schedule</a>
+          </div>
+        </article>
 
-          <article class="card card--wood card--accent">
-            <h3 class="card__title card__title--accent">Ready for adventure?</h3>
-            <p class="card__body">Want to try things out? Come in, we're open and ready to spell a yarn with you.</p>
-            <a href="#book" class="btn btn--primary">Custom pricing</a>
-          </article>
-        </div>
-
-        <!-- Visual / illustration slot -->
-        <article class="card card--illustration">
-          <div class="illustration-slot">
-            <p>some kind of<br>illustration<br>or fun</p>
+        <article class="card card--pricing">
+          <div class="card__pricing-zone">
+            <h3 class="card__pricing-name">Team events</h3>
+            <p class="card__price">Custom quote</p>
+          </div>
+          <div class="card__content">
+            <p class="card__body">Birthdays, corporate offsites, bachelor/bachelorette parties, holiday gatherings. Custom adventures designed for your group.</p>
+            <a href="book/" class="btn btn--ghost-dark card__btn" style="transform: translateX(2px);">Get quote</a>
           </div>
         </article>
 
       </div>
 
-      <!-- Booking embed slot -->
-      <div class="booking-embed" id="connect">
-        <h3 class="booking-embed__title">Book your session</h3>
-        <p class="booking-embed__lede">Use the form below to get in touch about a one-shot, a campaign, or a custom team event.</p>
-        <div class="booking-embed__frame">
-          <!-- TODO: swap this div for your Calendly / Tally / Google Form embed iframe -->
-          <div class="booking-embed__placeholder">
-            <p>Booking form goes here.</p>
-            <p class="meta">Drop in your Calendly / Tally / Google Form embed code in <code>index.html</code> — search for <code>booking-embed__frame</code>.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -263,7 +239,7 @@
           <a href="#about">Other</a>
         </div>
 
-        <a href="#book" class="btn btn--primary footer__cta">Find a session</a>
+        <a href="book/" class="btn btn--primary footer__cta">Find a session</a>
       </nav>
 
       <div class="footer__legal">

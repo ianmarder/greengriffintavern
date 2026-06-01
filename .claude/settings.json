@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "PowerShell($content = Get-Content \"c:\\\\Users\\\\ianma\\\\Documents\\\\Client Websites\\\\Green Griffin site\\\\assets\\\\svg\\\\btn-squiggle-normal-black.svg\" -Raw; $content.Substring\\(0, 400\\))"
+    ]
+  }
+}

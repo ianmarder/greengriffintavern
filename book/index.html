@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Session — The Green Griffin Tavern</title>
+  <meta name="description" content="Pick a session type, find a date, and reserve your seat with The Green Griffin Tavern.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Book a Session — The Green Griffin Tavern">
+  <meta property="og:description" content="Pick a session type, find a date, and reserve your seat.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts: Averia Serif Libre + Averia Sans Libre -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,400&family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/svg/mark.svg">
+
+  <style>
+    .page-hero {
+      background: var(--blue-01);
+      padding: var(--s-9) 0;
+      text-align: center;
+    }
+    .page-hero__inner {
+      max-width: var(--max-narrow);
+      margin: 0 auto;
+      padding: 0 var(--s-5);
+    }
+    .page-hero__title {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      margin: 0 0 var(--s-4);
+    }
+    .page-hero__lede {
+      color: var(--fire-02);
+      font-size: 1.05rem;
+      max-width: 50ch;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip nav for keyboard users -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="/greengriffintavern/" class="nav__brand" aria-label="The Green Griffin Tavern — Home">
+        <img src="../assets/svg/mark-green.svg" alt="" class="nav__mark">
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="../#content">Content</a>
+        <a href="../#connect">Connect</a>
+        <a href="../#about">About</a>
+        <a href="#" class="btn btn--primary nav__cta">Find a session</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <h1 class="page-hero__title">Book a session</h1>
+      <p class="page-hero__lede">Pick a session type, find a date, and reserve your seat. Questions? Get in touch first.</p>
+    </div>
+  </section>
+
+  <!-- ============ BOOKING EMBED ============ -->
+  <section class="section" style="background: var(--blue-01);">
+    <div class="container">
+      <div class="booking-embed">
+        <h3 class="booking-embed__title">Book your session</h3>
+        <p class="booking-embed__lede">Use the form below to get in touch about a one-shot, a campaign, or a custom team event.</p>
+        <div class="booking-embed__frame">
+          <!-- TODO: swap this div for your Calendly / Tally / Google Form embed iframe -->
+          <div class="booking-embed__placeholder">
+            <p>Booking form goes here.</p>
+            <p class="meta">Drop in your Calendly / Tally / Google Form embed code in <code>book/index.html</code> — search for <code>booking-embed__frame</code>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main><!-- /#main-content -->
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <a href="/greengriffintavern/" class="footer__brand" aria-label="Home">
+        <img src="../assets/svg/mark-cream.svg" alt="The Green Griffin Tavern" class="footer__mark">
+      </a>
+
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="/greengriffintavern/" class="footer__home"> </a>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Content</p>
+          <a href="../#content">Campaigns Catalog</a>
+          <a href="../#content">DM's notebook</a>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Connect</p>
+          <a href="../#connect">The Discord</a>
+          <a href="../#connect">FB · X · insta</a>
+          <a href="../#connect">Other thing</a>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">About</p>
+          <a href="../#about">The barkeep</a>
+          <a href="../#about">Tavern goals</a>
+          <a href="../#about">Other</a>
+        </div>
+
+        <a href="#" class="btn btn--primary footer__cta">Find a session</a>
+      </nav>
+
+      <div class="footer__legal">
+        <p>Copyright stuff<br>Blair Cameron, owner<br>Site built by <a href="https://ianmarder.github.io" class="link">Ian Marder</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>
