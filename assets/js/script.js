@@ -1,10 +1,57 @@
-/* The Green Griffin Tavern — script.js
-   Minimal interactivity: scroll-shadow on nav, smooth-scroll with sticky offset. */
+/* The Green Griffin Tavern — script.js */
+
+// On GitHub Pages the repo lives at /greengriffintavern/; locally it's at root.
+const BASE_PATH = window.location.pathname.startsWith('/greengriffintavern')
+  ? '/greengriffintavern'
+  : '';
+
+// ---------- Nav & footer partials ----------
+// Single source of truth. Update here when the nav or footer changes.
+
+const NAV_HTML = `
+<header class="nav">
+  <div class="nav__inner">
+    <a href="${BASE_PATH}/" class="nav__brand" aria-label="The Green Griffin Tavern — Home">
+      <img src="${BASE_PATH}/assets/svg/mark-green.svg" alt="" class="nav__mark">
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="${BASE_PATH}/#content">Content</a>
+      <a href="${BASE_PATH}/#connect">Connect</a>
+      <a href="${BASE_PATH}/#about">About</a>
+      <a href="${BASE_PATH}/book/" class="btn btn--primary nav__cta">Find session</a>
+    </nav>
+  </div>
+</header>`;
+
+const FOOTER_HTML = `
+<footer class="footer">
+  <div class="footer__inner">
+    <a href="${BASE_PATH}/" class="footer__brand" aria-label="Home">
+      <img src="${BASE_PATH}/assets/svg/mark-cream.svg" alt="The Green Griffin Tavern" class="footer__mark">
+    </a>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="${BASE_PATH}/book/" class="btn btn--primary footer__cta">Find a session</a>
+    </nav>
+    <div class="footer__legal">
+      <p>Copyright 2026 Green Griffin Tavern</p>
+      <p>Blair Cameron, owner</p>
+      <p>Site built by <a href="https://ianmarder.github.io" class="link">Ian Marder</a></p>
+    </div>
+  </div>
+</footer>`;
+
+const PARTIALS = { nav: NAV_HTML, footer: FOOTER_HTML };
 
 (function () {
   'use strict';
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- Inject partials ----------
+  document.querySelectorAll('[data-include]').forEach(el => {
+    const html = PARTIALS[el.dataset.include];
+    if (html) el.outerHTML = html;
+  });
 
   // ---------- Nav scroll state ----------
   const nav = document.querySelector('.nav');
@@ -19,7 +66,6 @@
 
   // ---------- Background video parallax ----------
   const bgVideo = document.querySelector('.bg-video__media');
-  const footer = document.querySelector('.footer');
 
   if (bgVideo && !prefersReducedMotion) {
     const updateParallax = () => {
@@ -27,12 +73,10 @@
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       const t = Math.min(scrollY / maxScroll, 1);
 
-      // Ease in-out
       const eased = t < 0.5
         ? 2 * t * t
         : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
-      // Scale 1.1 → 1.4, shift up 0 → 120px — scale covers the edge bleed
       const scale = 1.1 + (eased * 0.3);
       const shift = -(eased * 120);
       bgVideo.style.transform = `scale(${scale}) translateY(${shift}px)`;
@@ -53,11 +97,10 @@
   }
 
   // ---------- Randomize dividers ----------
-  const prefix = window.location.pathname.includes('/book/') ? '../' : '';
   const dividerSVGs = [
-    `${prefix}assets/svg/divider1.svg`,
-    `${prefix}assets/svg/divider2.svg`,
-    `${prefix}assets/svg/divider3.svg`,
+    `${BASE_PATH}/assets/svg/divider1.svg`,
+    `${BASE_PATH}/assets/svg/divider2.svg`,
+    `${BASE_PATH}/assets/svg/divider3.svg`,
   ];
 
   document.querySelectorAll('.rule, .hero__rule').forEach(el => {
@@ -67,7 +110,6 @@
   });
 
   // ---------- Smooth anchor offset for sticky nav ----------
-  // CSS handles smooth-scroll; this adds offset for the sticky header height.
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');

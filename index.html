@@ -33,19 +33,7 @@
   </div>
 
   <!-- ============ NAV ============ -->
-  <header class="nav">
-    <div class="nav__inner">
-      <a href="#top" class="nav__brand" aria-label="The Green Griffin Tavern — Home">
-        <img src="assets/svg/mark-green.svg" alt="" class="nav__mark">
-      </a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="#content">Content</a>
-        <a href="#connect">Connect</a>
-        <a href="#about">About</a>
-        <a href="book/" class="btn btn--primary nav__cta">Find session</a>
-      </nav>
-    </div>
-  </header>
+  <div data-include="nav"></div>
 
   <main id="main-content">
 
@@ -57,11 +45,11 @@
       </div>
       <div class="hero__copy">
         <h1 class="hero__headline">
-          Pull up a seat, grab an ale, and get ready.
+          Pull up a seat,<br>grab an ale,<br>and get ready.
         </h1>
         <div class="hero__rule" aria-hidden="true"></div>
         <p class="hero__lede">
-          Epic stories. Seamless play. A professional Dungeon Master for your next <em>adventure</em>.
+          Epic stories. Seamless play. A professional<br>Dungeon Master for your next <em>adventure</em>.
         </p>
         <a href="book/" class="btn btn--primary hero__cta">Find a session</a>
       </div>
@@ -72,6 +60,8 @@
   <section class="section section--ambient" id="about">
     <div class="container container--narrow">
       <div class="barkeep">
+        <img src="assets/svg/scroll.svg" alt="" aria-hidden="true" class="flair flair--scroll">
+        <img src="assets/svg/ggt-mug.svg" alt="" aria-hidden="true" class="flair flair--mug">
         <div class="barkeep__portrait" aria-hidden="true">
           <div class="barkeep__portrait-placeholder">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -139,7 +129,7 @@
       </div>
 
       <div class="section__footer">
-      <a href="book/" class="btn btn--outline btn--small">TTRPG FAQs</a>
+      <a href="faq/" class="btn btn--outline btn--small">TTRPG FAQs</a>
       </div>
       
     </div>
@@ -148,16 +138,18 @@
   <!-- ============ A LITTLE TASTE ============ -->
   <section class="section section--ambient" id="taste">
     <div class="container">
-      <h2 class="section__title section__title--centered">A little taste</h2>
-      <div class="rule rule--gold"></div>
+      <h2 class="section__title--centered">A little taste <img src="/greengriffintavern/assets/svg/parch-cup.svg" alt="" aria-hidden="true" class="flair flair--cup"></h2>
+      <div class="rule"></div>
 
-      <div class="taste-rail">
-        <div class="taste-card"><span>video</span></div>
-        <div class="taste-card"><span>images</span></div>
-        <div class="taste-card"><span>images</span></div>
-      </div>
-      <p class="meta meta--centered">Pulled from sessions on date, date, date</p>
-    </div>
+<div class="taste-rail">
+  <img src="assets/svg/parch-sword.svg" alt="" aria-hidden="true" class="flair flair--sword">
+  <img src="assets/svg/parch-lute.svg" alt="" aria-hidden="true" class="flair flair--lute">
+  <img src="assets/svg/parch-gauntlet.svg" alt="" aria-hidden="true" class="flair flair--gauntlet">
+  <img src="assets/svg/parch-helmet.svg" alt="" aria-hidden="true" class="flair flair--helmet">
+  <div class="taste-card"><span>video</span></div>
+  <div class="taste-card"><span>images</span></div>
+  <div class="taste-card"><span>images</span></div>
+</div>
   </section>
 
   <!-- ============ BOOKING / PRICING ============ -->
@@ -211,43 +203,7 @@
   </main><!-- /#main-content -->
 
   <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <a href="#top" class="footer__brand" aria-label="Home">
-        <img src="assets/svg/mark-cream.svg" alt="The Green Griffin Tavern" class="footer__mark">
-      </a>
-
-      <nav class="footer__nav" aria-label="Footer">
-        <a href="#top" class="footer__home"> </a>
-
-        <div class="footer__col">
-          <p class="footer__col-title">Content</p>
-          <a href="https://docs.google.com/presentation/d/1PD1ENk48OXuoyC1WaFCAtzr5ttYhZjICDz5e_-PWukE/view?slide=id.g38ec7b44cac_5_70#slide=id.g38ec7b44cac_5_70">Campaigns Catalog</a>
-          <a href="#content">DM's notebook</a>
-        </div>
-
-        <div class="footer__col">
-          <p class="footer__col-title">Connect</p>
-          <a href="#connect">The Discord</a>
-          <a href="#connect">FB · X · insta</a>
-          <a href="#connect">Other thing</a>
-        </div>
-
-        <div class="footer__col">
-          <p class="footer__col-title">About</p>
-          <a href="#about">The barkeep</a>
-          <a href="#about">Tavern goals</a>
-          <a href="#about">Other</a>
-        </div>
-
-        <a href="book/" class="btn btn--primary footer__cta">Find a session</a>
-      </nav>
-
-      <div class="footer__legal">
-        <p>Copyright stuff<br>Blair Cameron, owner<br>Site built by <a href="https://ianmarder.github.io" class="link">Ian Marder</a></p>
-      </div>
-    </div>
-  </footer>
+  <div data-include="footer"></div>
 
   <script src="assets/js/script.js"></script>
 </body>
